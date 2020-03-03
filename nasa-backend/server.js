@@ -55,7 +55,7 @@ app.use('/api/me', ensureAuth);
 // get the api by character name
 app.get('/api/nasa', async (req, res) => {
     try {
-        const data = await request.get(`https://api.nasa.gov/planetary/apod?api_key=${process.env.API_KEY}&date=${req.query.search}`);
+        const data = await request.get(`https://eonet.sci.gsfc.nasa.gov/api/v2.1/events`);
         console.log(data);
         res.json(data.body);
     } catch (e) {
