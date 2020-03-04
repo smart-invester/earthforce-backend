@@ -64,13 +64,12 @@ app.get('/api/nasa', async(req, res) => {
 
 });
 
-app.get('/api/categories', async(req, res) => {
+app.get('/api/categories/:query', async(req, res) => {
     try {
-        const data = await request.get(`https://eonet.sci.gsfc.nasa.gov/api/v2.1/categories`);
+        const data = await request.get(`https://eonet.sci.gsfc.nasa.gov/api/v2.1/categories/${req.params.query}`);
         //call responded with a buffer so data had to be passed through a buffer and parsed to get data.
-        const buff = new Buffer(data.body);
-        console.log(buff.toString());
-        res.json(JSON.parse(buff.toString()));
+        // const buff = new Buffer(data.body);
+        res.json(data.body);
     } catch (e) {
         console.error(e);
     }
