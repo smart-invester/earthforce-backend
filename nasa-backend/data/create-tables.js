@@ -13,6 +13,7 @@ async function run() {
                 hash VARCHAR(512) NOT NULL
             );
         
+            // seems like it would be nice for these favorites to be a bit heftier in a future iteration
             CREATE TABLE favorites (
                 id SERIAL PRIMARY KEY,
                 title VARCHAR(256) NOT NULL,
